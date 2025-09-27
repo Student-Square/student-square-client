@@ -3,10 +3,15 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
-import { Outfit } from "next/font/google";
+import { Outfit, Oswald } from "next/font/google";
 import "../styles/index.css";
 
 const outfit = Outfit({ subsets: ["latin"] });
+const oswald = Oswald({ 
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700"],
+  variable: "--font-oswald"
+});
 
 export default function RootLayout({
   children,
@@ -21,7 +26,7 @@ export default function RootLayout({
       */}
       <head />
 
-      <body className={`bg-[#FCFCFC] dark:bg-black ${outfit.className}`} suppressHydrationWarning>
+      <body className={`bg-[#FCFCFC] dark:bg-black ${outfit.className} ${oswald.variable}`} suppressHydrationWarning>
         <Providers>
           <Header />
           {children}

@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap')
-layer(base);
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @import 'tailwindcss';
 
@@ -15,6 +14,7 @@ layer(base);
   --breakpoint-2xl: 1400px;
 
   --font-family-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-family-oswald: var(--font-oswald), "Oswald", sans-serif;
 
   --color-current: currentColor;
   --color-transparent: transparent;
@@ -128,6 +128,10 @@ layer(base);
 @layer base {
   body {
     font-family: "Outfit", sans-serif;
+  }
+  
+  .font-oswald {
+    font-family: var(--font-oswald), "Oswald", sans-serif !important;
   }
 }
 
