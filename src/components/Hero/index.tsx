@@ -11,7 +11,7 @@ const Hero = () => {
         {/* Gradient Background */}
         <div className="absolute left-0 top-0 -z-10 h-full w-full opacity-20 hero-gradient "></div>
         {/* Hero Cards Section */}
-        <div className="w-full ">
+        <div className="w-full   ">
           <HeroCards />
         </div>
 
