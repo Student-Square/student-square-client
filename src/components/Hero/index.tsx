@@ -1,36 +1,20 @@
 import Link from "next/link";
+import HeroCards from "./HeroCards";
 
 const Hero = () => {
   return (
     <>
       <section
         id="home"
-        className="relative z-10 overflow-hidden bg-white pb-16 pt-[120px] dark:bg-[#080321] md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
+        className="relative z-10 overflow-hidden bg-white pt-20 dark:bg-[#080321] md:pt-24 xl:pt-28 2xl:pt-32"
       >
         {/* Gradient Background */}
-        <div className="absolute left-0 top-0 -z-10 h-full w-full opacity-20 hero-gradient"></div>
-        <div className="container">
-          <div className="-mx-4 flex flex-wrap">
-            <div className="w-full px-4">
-              <div className="mx-auto max-w-[800px] text-center">
-                <h1 className="mb-4 text-3xl font-bold leading-tight text-black dark:text-white md:text-[45px]">
-                  Next.js Template and Boilerplate for Crypto, ICO and Web3
-                </h1>
-                <p className="text-gray-600 dark:text-gray-300 mx-auto mb-4 max-w-[620px] text-lg font-medium">
-                  A Next.js website template for Crypto Currency, Blockchain, ICO, and Web3, meticulously styled with Tailwind CSS. This boilerplate includes essential integrations, UI components, pages, and enabling you to launch a comprehensive website or landing page for anything related to Crypto, Blockchain, and Web3.
-                </p>
-                <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-                  <Link
-                    href="#"
-                    className="rounded-full bg-primary px-8 py-3 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/90"
-                  >
-                    Buy Tokens 47% Off
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="absolute left-0 top-0 -z-10 h-full w-full opacity-20 hero-gradient "></div>
+        {/* Hero Cards Section */}
+        <div className="w-full ">
+          <HeroCards />
         </div>
+
         {/* Shape Images */}
         <img 
           alt="shape" 
