@@ -79,10 +79,10 @@ const HeroCards = () => {
 
 
           {/* Second Row - Two cards side by side */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:flex-[1]">
+          <div className="flex flex-row gap-4 sm:gap-6 md:flex-[1]">
             {/* Travelogue Card */}
             <motion.div
-              className="flex-1 h-[200px] sm:h-[180px] md:h-auto rounded-3xl sm:rounded-[2rem] overflow-hidden relative group drop-shadow-2xl "
+              className="hidden md:block flex-1 h-[200px] sm:h-[180px] md:h-auto rounded-3xl sm:rounded-[2rem] overflow-hidden relative group drop-shadow-2xl "
               variants={itemVariants}
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -115,7 +115,7 @@ const HeroCards = () => {
 
             {/* Reportage Card */}
             <motion.div
-              className="flex-1 h-[200px] sm:h-[180px] md:h-auto rounded-3xl sm:rounded-[2rem] overflow-hidden relative group drop-shadow-2xl"
+              className="hidden md:block flex-1 h-[200px] sm:h-[180px] md:h-auto rounded-3xl sm:rounded-[2rem] overflow-hidden relative group drop-shadow-2xl"
               variants={itemVariants}
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -149,10 +149,10 @@ const HeroCards = () => {
         </div>
 
         {/* Second Column - Takes 1/3 width (1 column) on desktop */}
-        <div className="md:col-span-1 flex flex-col gap-4 sm:gap-6">
+        <div className="md:col-span-1 flex flex-row md:flex-col gap-4 sm:gap-6">
           {/* First Row - Equal height card */}
       <motion.div
-            className="h-[200px] sm:h-[180px] md:flex-1 rounded-3xl sm:rounded-[2rem] overflow-hidden relative group drop-shadow-2xl"
+            className="h-[200px] sm:h-[180px] flex-1 md:flex-1 rounded-3xl sm:rounded-[2rem] overflow-hidden relative group drop-shadow-2xl"
         variants={itemVariants}
         whileHover={{ scale: 1.05, y: -5 }}
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -161,9 +161,7 @@ const HeroCards = () => {
           src="/images/hero/butterfly-baby.webp"
           alt="Person pointing in forest"
           fill
-          className="object-cover transition-transform duration-700 
-                     [mask-image:linear-gradient(to_bottom,transparent_0%,black_70%,black_100%)]
-              [mask-repeat:no-repeat] [mask-size:100%_100%]"
+          className="object-cover transition-transform duration-700 md:[mask-image:linear-gradient(to_bottom,transparent_0%,black_70%,black_100%)] md:[mask-repeat:no-repeat] md:[mask-size:100%_100%]"
         />
         <ProgressiveBlur
           className="pointer-events-none absolute bottom-0 left-0 h-[40%] w-full"
@@ -187,7 +185,7 @@ const HeroCards = () => {
 
           {/* Second Row - Equal height card */}
           <motion.div
-            className="h-[200px] sm:h-[180px] md:flex-1 rounded-3xl sm:rounded-[2rem] overflow-hidden relative group drop-shadow-2xl"
+            className="h-[200px] sm:h-[180px] flex-1 md:flex-1 rounded-3xl sm:rounded-[2rem] overflow-hidden relative group drop-shadow-2xl"
             variants={itemVariants}
             whileHover={{ scale: 1.05, y: -5 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
