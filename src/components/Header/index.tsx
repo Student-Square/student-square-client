@@ -76,21 +76,12 @@ const Header = () => {
           <div className="relative -mx-4 flex items-center justify-between">
             <div className="w-60 max-w-full px-4">
               <Link href="/" className="block w-full py-4 lg:py-4">
-                
                 <Image
                   alt="Logo"
-                  width={420}
-                  height={60}
-                  className="block w-full dark:hidden"
-                  src="/images/logo/studentsquare.png"
-                  style={{ color: 'transparent' }}
-                />
-                <Image
-                  alt="Logo"
-                  width={420}
-                  height={60}
-                  className="hidden w-full dark:block"
-                  src="/images/logo/studentsquare.png"
+                  width={520}
+                  height={70}
+                  className="block w-full logo-float"
+                  src="/images/logo/ss_logo.png"
                   style={{ color: 'transparent' }}
                 />
               </Link>

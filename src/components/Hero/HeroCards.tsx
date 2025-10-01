@@ -64,7 +64,7 @@ const HeroCards = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.8, duration: 0.5 }}
     >
-      <span className="text-white/90 text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 font-semibold">
+      <span className="inline-block text-white text-[10px] sm:text-xs md:text-sm uppercase tracking-wider mb-1 sm:mb-2 font-semibold rounded-full px-2 py-0.5 bg-gradient-to-r from-black/70 via-black/40 to-transparent backdrop-blur-sm ring-1 ring-white/10 shadow-lg border-l-2 border-red-500 pl-2.5">
         Feature Stories
       </span>
       <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl  font-bold text-white leading-tight drop-shadow-lg">
@@ -103,7 +103,7 @@ const HeroCards = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8, duration: 0.5 }}
                 >
-                  <span className="text-white/90 text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 font-semibold">
+                  <span className="inline-block text-white text-[10px] sm:text-xs md:text-sm uppercase tracking-wider mb-2 sm:mb-3 font-semibold rounded-full px-2 py-0.5 bg-gradient-to-r from-black/70 via-black/40 to-transparent backdrop-blur-sm ring-1 ring-white/10 border-l-2 border-red-500 pl-2.5">
                     Travelogue
                   </span>
                   <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-white leading-tight drop-shadow-lg">
@@ -136,7 +136,7 @@ const HeroCards = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8, duration: 0.5 }}
                 >
-                  <span className="text-white/90 text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 font-semibold">
+                  <span className="inline-block text-white text-[10px] sm:text-xs md:text-sm uppercase tracking-wider mb-2 sm:mb-3 font-semibold rounded-full px-2 py-0.5 bg-gradient-to-r from-black/70 via-black/40 to-transparent backdrop-blur-sm ring-1 ring-white/10 border-l-2 border-red-500 pl-2.5">
                     Reportage
                   </span>
                   <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-white leading-tight drop-shadow-lg">
@@ -173,7 +173,7 @@ const HeroCards = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
               >
-                <span className="text-white/90 text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 font-semibold">
+                <span className="inline-block text-white text-[10px] sm:text-xs md:text-sm uppercase tracking-wider mb-2 sm:mb-3 font-semibold rounded-full px-2 py-0.5 bg-gradient-to-r from-black/70 via-black/40 to-transparent backdrop-blur-sm ring-1 ring-white/10 border-l-2 border-red-500 pl-2.5">
                   Feature Stories
                 </span>
                 <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-white leading-tight drop-shadow-lg">
@@ -206,7 +206,7 @@ const HeroCards = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
               >
-                <span className="text-white/90 text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 font-semibold">
+                <span className="inline-block text-white text-[10px] sm:text-xs md:text-sm uppercase tracking-wider mb-2 sm:mb-3 font-semibold rounded-full px-2 py-0.5 bg-gradient-to-r from-black/70 via-black/40 to-transparent backdrop-blur-sm ring-1 ring-white/10 border-l-2 border-red-500 pl-2.5">
                   Feature Stories
                 </span>
                 <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-white leading-tight drop-shadow-lg">

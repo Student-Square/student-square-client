@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Outfit, Oswald } from "next/font/google";
+import { ReactLenis } from "lenis/react";
 import "../styles/index.css";
 
 const outfit = Outfit({ subsets: ["latin"] });
@@ -27,12 +28,14 @@ export default function RootLayout({
       <head />
 
       <body className={`bg-[#FCFCFC] dark:bg-black ${outfit.className} ${oswald.variable}`} suppressHydrationWarning>
-        <Providers>
-          <Header />
-          {children}
-          <Footer />
-          <ScrollToTop />
-        </Providers>
+        <ReactLenis root>
+          <Providers>
+            <Header />
+            {children}
+            <Footer />
+            <ScrollToTop />
+          </Providers>
+        </ReactLenis>
       </body>
     </html>
   );
