@@ -52,6 +52,8 @@ const Header = () => {
       setOpenIndex(index);
       setOpenSubIndex(-1);
     }
+    // Keep navbar open on mobile when clicking submenu
+    setNavbarOpen(true);
   };
   
   const handleSubSubmenu = (subIndex: number) => {
@@ -60,6 +62,8 @@ const Header = () => {
     } else {
       setOpenSubIndex(subIndex);
     }
+    // Keep navbar open on mobile when clicking sub-submenu
+    setNavbarOpen(true);
   };
 
   const usePathName = usePathname();
@@ -127,7 +131,7 @@ const Header = () => {
                         {menuItem.path ? (
                           <Link
                             href={menuItem.path}
-                            className={`ud-menu-scroll text-gray-800 hover:text-primary dark:text-gray-400 flex py-2 text-sm lg:text-base font-medium uppercase tracking-wide lg:ml-4 lg:inline-flex lg:py-4 xl:ml-6 2xl:ml-8 dark:hover:text-white lg:text-sm xl:text-base font-oswald ${
+                            className={`ud-menu-scroll text-gray-800 hover:text-primary dark:text-gray-400 flex py-2 text-sm lg:text-xs xl:text-base font-medium uppercase tracking-wide lg:ml-2 xl:ml-6 2xl:ml-8 lg:inline-flex lg:py-4 dark:hover:text-white lg:text-xs xl:text-base font-oswald ${
                               usePathName === menuItem.path ? "text-primary" : ""
                             }`}
                           >
@@ -137,7 +141,7 @@ const Header = () => {
                           <div className="group relative">
                             <Link
                               href="#"
-                              className="text-gray-800 hover:text-primary dark:text-gray-400 dark:hover:text-white relative flex items-center py-2 text-sm xl:text-base font-medium uppercase tracking-wide xl:ml-4 xl:inline-flex xl:py-4 xl:pr-4 xl:pl-0 2xl:ml-8 xl:text-sm 2xl:text-base font-oswald"
+                              className="text-gray-800 hover:text-primary dark:text-gray-400 dark:hover:text-white relative flex items-center py-2 text-sm lg:text-xs xl:text-base font-medium uppercase tracking-wide lg:ml-2 xl:ml-4 lg:inline-flex lg:py-4 xl:pr-4 xl:pl-0 2xl:ml-8 lg:text-xs xl:text-sm 2xl:text-base font-oswald"
                               onClick={() => handleSubmenu(index)}
                             >
                               {menuItem.title}
@@ -149,17 +153,17 @@ const Header = () => {
                                 </svg>
                               </span>
                             </Link>
-                            <ul className={`submenu transition-all duration-300 xl:absolute xl:top-[115%] xl:w-[300px] xl:p-4 xl:opacity-0 xl:group-hover:opacity-100 xl:group-hover:top-full ${
-                              openIndex === index ? "block xl:hidden" : "hidden xl:group-hover:block"
+                            <ul className={`submenu transition-all duration-300 lg:absolute lg:top-[115%] lg:w-[300px] lg:p-4 lg:opacity-0 lg:group-hover:opacity-100 lg:group-hover:top-full lg:z-50 ${
+                              openIndex === index ? "block lg:block" : "hidden lg:group-hover:block"
                             }`}>
-                              <div className="p-2 xl:p-3 bg-gray-50 dark:bg-gray-800 xl:bg-white/90 xl:dark:bg-black/90 xl:backdrop-blur-md xl:rounded-lg xl:shadow-lg">
+                              <div className="p-2 lg:p-3 bg-gray-50 dark:bg-gray-800 lg:bg-white/90 lg:dark:bg-black/90 lg:backdrop-blur-md lg:rounded-lg lg:shadow-lg">
                               {menuItem.submenu?.map((submenuItem, subIndex) => (
                               <li key={subIndex} className="relative">
                                 {submenuItem.submenu ? (
                                   <>
                                     <Link
                                       href={submenuItem.path || "#"}
-                                      className="hover:text-blue-600 dark:hover:text-blue-400 flex items-center justify-between py-[8px] text-xs xl:text-sm text-gray-700 xl:px-3 dark:text-gray-300 font-outfit font-medium uppercase tracking-wide hover:border hover:border-l-4 hover:border-l-red-500 hover:border-t-gray-300 hover:border-r-gray-300 hover:border-b-gray-300 hover:ml-0 transition-all duration-200"
+                                      className="hover:text-red-600 dark:hover:text-red-400 flex items-center justify-between py-[8px] text-xs lg:text-sm text-gray-700 lg:px-3 dark:text-gray-300 font-outfit font-medium uppercase tracking-wide hover:border hover:border-l-4 hover:border-l-red-500 hover:border-t-gray-300 hover:border-r-gray-300 hover:border-b-gray-300 hover:ml-0 transition-all duration-200"
                                       onClick={(e) => {
                                         e.preventDefault();
                                         handleSubSubmenu(subIndex);
@@ -172,17 +176,17 @@ const Header = () => {
                                         </svg>
                                       </span>
                                     </Link>
-                                    <ul className={`sub-submenu transition-all duration-300 xl:absolute xl:left-full xl:top-0 xl:w-[250px] ${
-                                      openSubIndex === subIndex ? "block xl:block" : "hidden xl:hidden"
+                                    <ul className={`sub-submenu transition-all duration-300 lg:absolute lg:left-full lg:top-0 lg:w-[250px] lg:z-50 ${
+                                      openSubIndex === subIndex ? "block lg:block" : "hidden lg:hidden"
                                     }`}>
-                                      <div className="p-2 xl:p-3 bg-gray-50 dark:bg-gray-800 xl:bg-white/90 xl:dark:bg-black/90 xl:backdrop-blur-md xl:rounded-lg xl:shadow-lg">
+                                      <div className="p-2 lg:p-3 bg-gray-50 dark:bg-gray-800 lg:bg-white/90 lg:dark:bg-black/90 lg:backdrop-blur-md lg:rounded-lg lg:shadow-lg">
                                       {submenuItem.submenu.map((subSubmenuItem, subSubIndex) => (
                                         <li key={subSubIndex}>
                                           <Link
                                             href={subSubmenuItem.path || "#"}
-                                            className="hover:text-blue-600 dark:hover:text-blue-400 flex items-center py-1.5 px-2 xl:py-2.5 xl:px-4 text-xs xl:text-sm text-gray-700 dark:text-gray-300 font-outfit font-medium uppercase tracking-wide hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md transition-all duration-200 group w-full"
+                                            className="hover:text-red-600 dark:hover:text-red-400 flex items-center py-1.5 px-2 lg:py-2.5 lg:px-4 text-xs lg:text-sm text-gray-700 dark:text-gray-300 font-outfit font-medium uppercase tracking-wide hover:border-l-4 hover:border-l-red-500 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md transition-all duration-200 group w-full"
                                           >
-                                            <span className="flex items-center hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                                            <span className="flex items-center hover:text-red-600 dark:hover:text-red-400 transition-colors duration-200">
                                               {subSubmenuItem.icon && (
                                                 <subSubmenuItem.icon className="w-4 h-4 mr-3 flex-shrink-0" />
                                               )}
@@ -197,9 +201,9 @@ const Header = () => {
                                 ) : (
                                   <Link
                                       href={submenuItem.path || "#"}
-                                      className="hover:text-blue-600 dark:hover:text-blue-400 flex items-center py-1.5 px-2 xl:py-3 xl:px-4 text-xs xl:text-sm text-gray-700 dark:text-gray-300 font-outfit font-medium uppercase tracking-wide hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md transition-all duration-200 group w-full"
+                                      className="hover:text-red-600 dark:hover:text-red-400 flex items-center py-1.5 px-2 lg:py-3 lg:px-4 text-xs lg:text-sm text-gray-700 dark:text-gray-300 font-outfit font-medium uppercase tracking-wide hover:border-l-4 hover:border-l-red-500 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md transition-all duration-200 group w-full"
                                   >
-                                      <span className="flex items-center hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                                      <span className="flex items-center hover:text-red-600 dark:hover:text-red-400 transition-colors duration-200">
                                         {submenuItem.icon && (
                                           <submenuItem.icon className="w-4 h-4 mr-2 flex-shrink-0" />
                                         )}
@@ -245,7 +249,7 @@ const Header = () => {
               </div>
 
               {/* Right Side Actions */}
-            <div className="flex items-center justify-center flex-1 pr-16 xl:pr-0 xl:pl-4 2xl:pl-6">
+            <div className="flex items-center justify-center flex-1 pr-16 lg:pr-20 xl:pr-0 xl:pl-4 2xl:pl-6">
                 {/* Search Button */}
               <button className="mr-1 xl:mr-2 2xl:mr-3 flex h-8 w-8 sm:h-9 sm:w-9 xl:h-[38px] xl:w-[38px] items-center justify-center rounded-full bg-white text-body-color-2 border border-gray-200 dark:border-none dark:bg-black dark:text-gray-200">
                   <Search className="h-4 w-4 sm:h-4 sm:w-4 xl:h-5 xl:w-5" />
@@ -254,7 +258,7 @@ const Header = () => {
                 {/* Dark Mode Toggle - moved to be left of donate button */}
                 {mounted && (
                 <div className="ml-1 lg:ml-2 xl:ml-3 hidden md:block">
-                    <label htmlFor="darkToggler" className="flex h-8 sm:h-9 lg:h-11 w-16 sm:w-18 lg:w-20 cursor-pointer items-center justify-center rounded-full bg-gray-100 dark:bg-[#1E2763] px-0.5 sm:px-1 lg:px-0">
+                    <label htmlFor="darkToggler" className="flex h-8 sm:h-9 lg:h-9 xl:h-11 w-16 sm:w-18 lg:w-16 xl:w-20 cursor-pointer items-center justify-center rounded-full bg-gray-100 dark:bg-[#1E2763] px-0.5 sm:px-1 lg:px-0">
                       <input
                         id="darkToggler"
                         className="sr-only"
@@ -264,22 +268,22 @@ const Header = () => {
                         checked={theme === "dark"}
                         onChange={toggleDarkMode}
                       />
-                      <span className="flex h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 items-center justify-center rounded-full bg-primary text-white dark:bg-transparent dark:text-body-color">
-                        <Sun className="h-4 w-4 sm:h-5 sm:w-5 lg:h-4 lg:w-4" />
+                      <span className="flex h-6 w-6 sm:h-7 sm:w-7 lg:h-6 lg:w-6 xl:h-8 xl:w-8 items-center justify-center rounded-full bg-primary text-white dark:bg-transparent dark:text-body-color">
+                        <Sun className="h-4 w-4 sm:h-5 sm:w-5 lg:h-3 lg:w-3 xl:h-4 xl:w-4" />
                       </span>
-                      <span className="flex h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 items-center justify-center rounded-full bg-transparent text-body-color-2 dark:bg-primary dark:text-white">
-                        <Moon className="h-4 w-4 sm:h-5 sm:w-5 lg:h-4 lg:w-4" />
+                      <span className="flex h-6 w-6 sm:h-7 sm:w-7 lg:h-6 lg:w-6 xl:h-8 xl:w-8 items-center justify-center rounded-full bg-transparent text-body-color-2 dark:bg-primary dark:text-white">
+                        <Moon className="h-4 w-4 sm:h-5 sm:w-5 lg:h-3 lg:w-3 xl:h-4 xl:w-4" />
                       </span>
                     </label>
                   </div>
                 )}
 
               {/* Donate Button */}
- <div className="flex ml-2 mr-2 xl:ml-4 xl:mr-0 2xl:ml-6 relative z-30">
+ <div className="flex ml-2 mr-2 lg:mr-4 xl:ml-4 xl:mr-0 2xl:ml-6 relative z-30">
    <button
      className="donate-animated relative flex items-center justify-center rounded-full 
-                px-3 py-1.5 sm:px-4 sm:py-2 lg:px-4 xl:px-5 h-8 sm:h-9 lg:h-11
-                shadow-lg text-xs sm:text-sm lg:text-[13px] xl:text-base font-semibold tracking-wide 
+                px-3 py-1.5 sm:px-4 sm:py-2 lg:px-3 xl:px-5 h-8 sm:h-9 lg:h-9 xl:h-11
+                shadow-lg text-xs sm:text-sm lg:text-xs xl:text-base font-semibold tracking-wide 
                 transition-all duration-300 hover:scale-105 group overflow-hidden
                 text-white"
     onClick={() => { setDonateRipple(true); setTimeout(() => setDonateRipple(false), 450); }}
@@ -293,10 +297,10 @@ const Header = () => {
      {/* Icon */}
      <span className="relative ml-1 flex items-center justify-center">
        {donateRipple && (
-         <span className="absolute h-3 w-3 sm:h-3.5 sm:w-3.5 lg:h-4 lg:w-4 rounded-full bg-blue-400/50 animate-ping" />
+         <span className="absolute h-3 w-3 sm:h-3.5 sm:w-3.5 lg:h-3 lg:w-3 xl:h-4 xl:w-4 rounded-full bg-blue-400/50 animate-ping" />
        )}
        <Heart
-         className="relative z-10 h-3 w-3 sm:h-3 sm:w-3 lg:h-3.5 lg:w-3.5 
+         className="relative z-10 h-3 w-3 sm:h-3 sm:w-3 lg:h-3 lg:w-3 xl:h-3.5 xl:w-3.5 
                     fill-white 
                     group-hover:fill-blue-200 
                     transition-transform duration-300 group-hover:scale-125 
