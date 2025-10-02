@@ -96,34 +96,41 @@ const HeroCards = () => {
       masterTimer += masterInterval;
       
       // Main feature card changes every 7 seconds (7, 14, 21, 28...)
-      if (masterTimer % 7000 === 0) {
+      if (masterTimer !== 0 && masterTimer % 7000 === 0) {
+        console.log(`🔄 Main Feature changing at ${masterTimer}ms`);
         setCurrentMainFeature((prev) => (prev + 1) % cardData.mainFeature.length);
         setCurrentMainImage(0);
       }
       
-      // One of the 4 cards changes every 10 seconds in sequence
-      // 10s: Secondary Feature, 20s: Blog Card 1, 30s: Third Feature, 40s: Blog Card 2, then repeat
-      
-      // Secondary Feature changes at 10s, 50s, 90s...
-      if (masterTimer === 10000 || (masterTimer > 10000 && (masterTimer - 10000) % 40000 === 0)) {
-        setCurrentSecondaryFeature((prev) => (prev + 1) % cardData.secondaryFeature.length);
-        setCurrentSecondaryImage(0);
-      }
-      
-      // Blog Card 1 changes at 20s, 60s, 100s...
-      if (masterTimer === 20000 || (masterTimer > 20000 && (masterTimer - 20000) % 40000 === 0)) {
-        setCurrentBlogCard1((prev) => (prev + 1) % cardData.blogCard1.length);
-      }
-      
-      // Third Feature changes at 30s, 70s, 110s...
-      if (masterTimer === 30000 || (masterTimer > 30000 && (masterTimer - 30000) % 40000 === 0)) {
-        setCurrentThirdFeature((prev) => (prev + 1) % cardData.thirdFeature.length);
-        setCurrentThirdImage(0);
-      }
-      
-      // Blog Card 2 changes at 40s, 80s, 120s...
-      if (masterTimer === 40000 || (masterTimer > 40000 && (masterTimer - 40000) % 40000 === 0)) {
-        setCurrentBlogCard2((prev) => (prev + 1) % cardData.blogCard2.length);
+      // All 4 cards change in sequence every 10 seconds - only ONE at a time
+      // 10s: Blog Card 1, 20s: Feature 2, 30s: Blog Card 2, 40s: Feature 3, then repeat
+      if (masterTimer >= 10000 && masterTimer % 10000 === 0) {
+        const cardSequence = ['b1', 'f2', 'b2', 'f3']; // b1=Blog Card 1, f2=Feature 2, b2=Blog Card 2, f3=Feature 3
+        const cyclePosition = Math.floor((masterTimer - 10000) / 10000) % 4;
+        const currentCard = cardSequence[cyclePosition];
+        
+        console.log(`🔄 Timer: ${masterTimer}ms, Cycle Position: ${cyclePosition}, Card: ${currentCard}`);
+        
+        switch (currentCard) {
+          case 'b1': // Blog Card 1
+            console.log(`🔄 Blog Card 1 changing at ${masterTimer}ms`);
+            setCurrentBlogCard1((prev) => (prev + 1) % cardData.blogCard1.length);
+            break;
+          case 'f2': // Feature 2 (Secondary Feature)
+            console.log(`🔄 Feature 2 changing at ${masterTimer}ms`);
+            setCurrentSecondaryFeature((prev) => (prev + 1) % cardData.secondaryFeature.length);
+            setCurrentSecondaryImage(0);
+            break;
+          case 'b2': // Blog Card 2
+            console.log(`🔄 Blog Card 2 changing at ${masterTimer}ms`);
+            setCurrentBlogCard2((prev) => (prev + 1) % cardData.blogCard2.length);
+            break;
+          case 'f3': // Feature 3 (Third Feature)
+            console.log(`🔄 Feature 3 changing at ${masterTimer}ms`);
+            setCurrentThirdFeature((prev) => (prev + 1) % cardData.thirdFeature.length);
+            setCurrentThirdImage(0);
+            break;
+        }
       }
       
       // Reset timer after 120 seconds to prevent overflow
@@ -323,7 +330,7 @@ const HeroCards = () => {
                   exit={{ opacity: 0, y: -25 }}
                   transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
                 >
-                  <ProgressSpan duration={40000}>
+                  <ProgressSpan duration={10000}>
                     {blogCard1Data.category}
                   </ProgressSpan>
                   <motion.h3 
@@ -362,7 +369,7 @@ const HeroCards = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8, duration: 0.5 }}
                 >
-                  <ProgressSpan duration={40000}>
+                  <ProgressSpan duration={10000}>
                     {blogCard2Data.category}
                   </ProgressSpan>
                   <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-white leading-tight drop-shadow-lg">
@@ -408,7 +415,7 @@ const HeroCards = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
               >
-                <ProgressSpan duration={40000}>
+                <ProgressSpan duration={10000}>
                   {secondaryFeatureData.category}
                 </ProgressSpan>
                 <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-white leading-tight drop-shadow-lg">
@@ -450,7 +457,7 @@ const HeroCards = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
               >
-                <ProgressSpan duration={40000}>
+                <ProgressSpan duration={10000}>
                   {thirdFeatureData.category}
                 </ProgressSpan>
                 <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-white leading-tight drop-shadow-lg">
