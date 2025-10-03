@@ -28,7 +28,7 @@ const Header = () => {
     window.addEventListener("scroll", handleStickyNavbar);
   });
 
-  // Dark mode toggle using next-themes
+  // Theme management using next-themes
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [donateRipple, setDonateRipple] = useState(false);
@@ -37,7 +37,7 @@ const Header = () => {
     setMounted(true);
   }, []);
 
-  const toggleDarkMode = () => {
+  const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
@@ -233,7 +233,7 @@ const Header = () => {
                             type="checkbox"
                             name="darkTogglerDrawer"
                             checked={theme === "dark"}
-                            onChange={toggleDarkMode}
+                            onChange={toggleTheme}
                           />
                           <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white dark:bg-transparent dark:text-body-color">
                             <Sun className="h-4 w-4" />
@@ -266,7 +266,7 @@ const Header = () => {
                         type="checkbox"
                         name="darkToggler"
                         checked={theme === "dark"}
-                        onChange={toggleDarkMode}
+                        onChange={toggleTheme}
                       />
                       <span className="flex h-6 w-6 sm:h-7 sm:w-7 lg:h-6 lg:w-6 xl:h-8 xl:w-8 items-center justify-center rounded-full bg-primary text-white dark:bg-transparent dark:text-body-color">
                         <Sun className="h-4 w-4 sm:h-5 sm:w-5 lg:h-3 lg:w-3 xl:h-4 xl:w-4" />
