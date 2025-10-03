@@ -171,7 +171,7 @@ const HeroCards = () => {
         <div className="md:col-span-2 xl:col-span-2 flex flex-col gap-4 sm:gap-6">
           {/* First Row - Full width card taking 2/3 height */}
           <motion.div
-            className="h-[250px] sm:h-[300px] md:min-h-[360px] md:flex-[2] rounded-3xl sm:rounded-[2rem] overflow-hidden relative group drop-shadow-2xl"
+            className="h-[250px] sm:h-[300px] md:min-h-[360px] md:flex-[2] rounded-3xl sm:rounded-[2rem] overflow-hidden relative group"
             variants={itemVariants}
             whileHover={{ scale: 1.02, y: -5 }}
             transition={{ type: 'spring', stiffness: 400, damping: 10 }}
@@ -229,7 +229,7 @@ const HeroCards = () => {
           <div className="flex flex-row gap-4 sm:gap-6 md:flex-[1] xl:hidden">
             {/* Feature 2 (Secondary) for small/medium */}
             <motion.div
-              className="flex-1 h-[220px] sm:h-[160px] md:h-[300px] rounded-3xl sm:rounded-[2rem] overflow-hidden relative group drop-shadow-2xl"
+              className="flex-1 h-[220px] sm:h-[160px] md:h-[300px] rounded-3xl sm:rounded-[2rem] overflow-hidden relative group"
               variants={itemVariants}
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -271,7 +271,7 @@ const HeroCards = () => {
 
             {/* Feature 3 (Third) for small/medium */}
             <motion.div
-              className="flex-1 h-[220px] sm:h-[160px] md:h-[300px] rounded-3xl sm:rounded-[2rem] overflow-hidden relative group drop-shadow-2xl"
+              className="flex-1 h-[220px] sm:h-[160px] md:h-[300px] rounded-3xl sm:rounded-[2rem] overflow-hidden relative group"
               variants={itemVariants}
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -316,7 +316,7 @@ const HeroCards = () => {
           <div className="hidden xl:flex flex-row gap-4 sm:gap-6 md:flex-[1]">
             {/* Travelogue Card (Blog 1) */}
             <motion.div
-              className="flex-1 h-[200px] sm:h-[180px] md:h-auto rounded-3xl sm:rounded-[2rem] overflow-hidden relative group drop-shadow-2xl"
+              className="flex-1 h-[200px] sm:h-[180px] md:h-auto rounded-3xl sm:rounded-[2rem] overflow-hidden relative group"
               variants={itemVariants}
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -366,7 +366,7 @@ const HeroCards = () => {
 
             {/* Reportage Card (Blog 2) */}
             <motion.div
-              className="flex-1 h-[200px] sm:h-[180px] md:h-auto rounded-3xl sm:rounded-[2rem] overflow-hidden relative group drop-shadow-2xl"
+              className="flex-1 h-[200px] sm:h-[180px] md:h-auto rounded-3xl sm:rounded-[2rem] overflow-hidden relative group"
               variants={itemVariants}
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -403,7 +403,7 @@ const HeroCards = () => {
         <div className="md:col-span-1 hidden xl:flex flex-row md:flex-col gap-4 sm:gap-6">
           {/* First Row - Equal height card */}
           <motion.div
-            className="h-[220px] xl:h-[260px] flex-1 md:flex-1 rounded-3xl sm:rounded-[2rem] overflow-hidden relative group drop-shadow-2xl"
+            className="h-[220px] xl:h-[260px] flex-1 md:flex-1 rounded-3xl sm:rounded-[2rem] overflow-hidden relative group"
             variants={itemVariants}
             whileHover={{ scale: 1.05, y: -5 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -445,7 +445,7 @@ const HeroCards = () => {
 
           {/* Second Row - Equal height card */}
           <motion.div
-            className="h-[220px] xl:h-[260px] flex-1 md:flex-1 rounded-3xl sm:rounded-[2rem] overflow-hidden relative group drop-shadow-2xl"
+            className="h-[220px] xl:h-[260px] flex-1 md:flex-1 rounded-3xl sm:rounded-[2rem] overflow-hidden relative group"
             variants={itemVariants}
             whileHover={{ scale: 1.05, y: -5 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}

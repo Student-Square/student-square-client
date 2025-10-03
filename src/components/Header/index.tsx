@@ -79,13 +79,13 @@ const Header = () => {
       >
         <div className="container max-w-[1600px] ">
           <div className="relative -mx-4 flex items-center justify-between">
-            <div className="w-60 max-w-full px-4 min-w-[clamp(120px,15vw,180px)]">
+            <div className="w-60 max-w-full px-4 min-w-[clamp(140px,17vw,195px)] sm:min-w-[clamp(140px,18vw,200px)] lg:min-w-[clamp(160px,20vw,220px)] xl:min-w-[clamp(150px,18vw,210px)] 2xl:min-w-[clamp(140px,16vw,200px)]">
               <Link href="/" className="block w-full py-4 lg:py-4">
                 <Image
                   alt="Logo"
                   width={520}
                   height={70}
-                  className="block w-full logo-float min-h-[clamp(30px,5vw,50px)] object-contain"
+                  className="block w-full logo-float min-h-[clamp(34px,6vw,54px)] sm:min-h-[clamp(35px,6vw,55px)] lg:min-h-[clamp(40px,7vw,60px)] xl:min-h-[clamp(38px,6.5vw,58px)] 2xl:min-h-[clamp(36px,6vw,56px)] object-contain"
                   src="/images/logo/ss_logo.png"
                   style={{ color: 'transparent' }}
                 />
