@@ -42,12 +42,12 @@ export default function CardSpotlight({ children, className }: CardSpotlightProp
         onMouseLeave={() => setIsHovered(false)}
         ref={boxWrapper}
         className={cn(
-          "group relative rounded-lg overflow-hidden w-full h-full"
+          "group relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden w-full h-full"
         )}
       >
         {isHovered && (
           <div
-            className="pointer-events-none absolute opacity-0 z-10 rounded-xl w-full h-full group-hover:opacity-100 transition duration-300"
+            className="pointer-events-none absolute opacity-0 z-10 rounded-[2rem] sm:rounded-[2.5rem] w-full h-full group-hover:opacity-100 transition duration-300"
             style={{
               background: `radial-gradient(250px circle at ${overlayColor.x}px ${overlayColor.y}px, rgba(255,255,255,0.068), transparent 80%)`,
             }}
@@ -55,7 +55,7 @@ export default function CardSpotlight({ children, className }: CardSpotlightProp
         )}
 
         <div
-          className="absolute opacity-0 group-hover:opacity-100 z-10 inset-0 bg-fixed rounded-lg"
+          className="absolute opacity-0 group-hover:opacity-100 z-10 inset-0 bg-fixed rounded-[2rem] sm:rounded-[2.5rem]"
           style={{
             background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, #ffffff76 0%, transparent 20%, transparent) fixed`,
           }}

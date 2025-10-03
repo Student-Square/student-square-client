@@ -185,11 +185,11 @@ const Features = () => {
                 <br />
                 <span
                   className={cn(
-                    "bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-gray-800 to-rose-600 dark:from-indigo-300 dark:via-white/90 dark:to-rose-300",
+                    "bg-clip-text text-transparent bg-gradient-to-r from-red-300 via-gray-500 to-green-300 dark:from-indigo-300 dark:via-white/90 dark:to-rose-300",
                     pacifico.className,
                   )}
                 >
-                  Starts Here
+                  Starts Here ✨
                 </span>
               </h2>
             </motion.div>
@@ -207,77 +207,76 @@ const Features = () => {
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 sm:gap-10 md:grid-cols-3 max-w-6xl mx-auto">
-            {cards.map((card, index) => (
-              <motion.div
-                key={card.title}
-                variants={fadeUpVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={getTransition(0.6 + index * 0.15)}
-              >
-                <Link
-                  href={card.href}
-                  className="group relative block overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-white/80 dark:bg-white/[0.03] backdrop-blur-sm ring-1 ring-gray-200/50 dark:ring-white/[0.08] shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_-12px_rgba(255,255,255,0.1)] transition-all duration-500 will-change-transform hover:-translate-y-2 hover:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_25px_60px_-12px_rgba(255,255,255,0.2)] hover:ring-gray-300/50 dark:hover:ring-white/[0.15]"
-                >
-                  {/* Removed color fill overlay so image stays fully visible on hover */}
+          <div className="grid md:grid-cols-3 gap-8 max-md:max-w-md mx-auto">
+          {cards.map((card) => (
+            <div
+              key={card.title}
+              className="group relative bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl dark:shadow-slate-950/50 transition-all duration-500 hover:-translate-y-2 border border-slate-200/50 dark:border-slate-800/50"
+            >
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-blue-500/10 group-hover:via-purple-500/10 group-hover:to-pink-500/10 dark:group-hover:from-blue-500/20 dark:group-hover:via-purple-500/20 dark:group-hover:to-pink-500/20 transition-all duration-500 z-10 pointer-events-none" />
 
-                  <div className="relative aspect-[4/5] sm:aspect-[1/1] z-10">
-                    <Image
-                      src={card.image || "/placeholder.svg"}
-                      alt={card.title}
-                      fill
-                      priority={index < 2}
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
+              {/* Image container */}
+              <div className="relative h-64 overflow-hidden">
+                <Image
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
+                  src={card.image || "/placeholder.svg"}
+                  width={400}
+                  height={300}
+                  alt={card.title}
+                />
+                {/* Gradient overlay on image */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+              </div>
 
-                    {/* Enhanced gradient overlay for readability - very light */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
+              {/* Content */}
+              <div className="relative p-6 bg-gradient-to-b from-transparent to-slate-50/50 dark:to-slate-900/50 backdrop-blur-sm">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                      {card.title}
+                    </h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                      Explore more →
+                    </p>
+                  </div>
 
-                    <div
-                      className={`pointer-events-none absolute inset-0 rounded-[2rem] sm:rounded-[2.5rem] bg-gradient-to-r ${card.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-[2px]`}
+                  {/* Modern button */}
+                  <button
+                    className="relative w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 group-hover:bg-gradient-to-br group-hover:from-blue-500 group-hover:to-purple-600 transition-all duration-500 flex items-center justify-center overflow-hidden shadow-md group-hover:shadow-xl group-hover:shadow-blue-500/50 dark:group-hover:shadow-blue-500/30"
+                    aria-label={`View ${card.title}`}
+                  >
+                    {/* Arrow icon */}
+                    <svg
+                      className="w-5 h-5 text-slate-700 dark:text-slate-300 group-hover:text-white transition-all duration-500 transform group-hover:translate-x-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
-                      <div className="w-full h-full rounded-[2rem] sm:rounded-[2.5rem] bg-transparent" />
-                    </div>
-                  </div>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.5}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
 
-                  <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 z-20">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-white text-xl sm:text-2xl font-bold tracking-wide drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300">
-                        {card.title}
-                      </h3>
-                      <div
-                        className={`relative inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-white/70 bg-white/15 dark:bg-white/10 text-white shadow-lg ring-2 ring-white/10 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-12`}
-                      >
-                        {/* Gradient fill appears on hover */}
-                        <span className={`absolute inset-0 rounded-full bg-gradient-to-r ${card.accent} opacity-0 transition-opacity duration-300 group-hover:opacity-100`} />
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          className="relative z-10 h-6 w-6 text-white"
-                        >
-                          <path d="M8 12h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                          <path d="M13 7l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
+                    {/* Ripple effect */}
+                    <span className="absolute inset-0 rounded-full bg-white/30 scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 transition-all duration-700" />
+                  </button>
+                </div>
 
-                  <div className="absolute top-4 right-4 w-2 h-2 bg-gray-600/60 dark:bg-white/60 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-ping" />
-                  <div
-                    className="absolute top-8 right-8 w-1 h-1 bg-gray-500/40 dark:bg-white/40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-ping"
-                    style={{ animationDelay: "300ms" }}
-                  />
-                  <div
-                    className="absolute top-6 right-12 w-1.5 h-1.5 bg-gray-600/50 dark:bg-white/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-600 animate-ping"
-                    style={{ animationDelay: "150ms" }}
-                  />
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+                {/* Decorative line */}
+                <div className="mt-4 h-1 w-0 group-hover:w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full transition-all duration-700" />
+              </div>
+
+              {/* Shine effect */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              </div>
+            </div>
+          ))}
+        </div>
         </div>
 
         <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/60 dark:from-[#030303] dark:via-transparent dark:to-[#030303]/60 pointer-events-none" />
