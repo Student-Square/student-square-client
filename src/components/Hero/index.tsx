@@ -16,7 +16,7 @@ const Hero = () => {
         </div>
 
         {/* Shape Images */}
-        <img 
+        {/* <img 
           alt="shape" 
           loading="lazy" 
           width="411" 
@@ -24,7 +24,7 @@ const Hero = () => {
           className="absolute left-0 top-0 -z-10" 
           src="/images/hero/hero-shape-1.svg" 
           style={{ color: 'transparent' }}
-        />
+        /> */}
         <img 
           alt="shape" 
           loading="lazy" 

@@ -5,6 +5,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { Pacifico } from "next/font/google"
 import { cn } from "@/lib/utils"
+import Stats from "@/components/Stats"
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -281,6 +282,8 @@ const Features = () => {
 
         <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/60 dark:from-[#030303] dark:via-transparent dark:to-[#030303]/60 pointer-events-none" />
       </section>
+      
+      <Stats />
     </>
   )
 }

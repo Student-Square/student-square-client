@@ -24,11 +24,10 @@ export default function Video() {
             <div className="w-full px-4">
               <div className="mx-auto max-w-[770px] overflow-hidden rounded-md">
                 <div className="relative aspect-77/40 items-center justify-center">
-                  <Image
-                    src="/images/video/image.png"
-                    alt="video image"
-                    className="object-cover"
-                    fill
+                  <img
+                    src="https://img.youtube.com/vi/Owkmkp7qYAE/maxresdefault.jpg"
+                    alt="video thumbnail"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
                   <div className="absolute top-0 right-0 flex h-full w-full items-center justify-center">
                     <button
@@ -62,7 +61,7 @@ export default function Video() {
         isOpen={isOpen}
         onClose={() => setOpen(false)}
         channel="youtube"
-        videoId="L61p2uyiMSo"
+        videoId="Owkmkp7qYAE"
       />
     </>
   );
