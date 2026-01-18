@@ -92,7 +92,6 @@ const HeroCards = () => {
       
       // Main feature card changes every 7 seconds (7, 14, 21, 28...)
       if (masterTimer !== 0 && masterTimer % 7000 === 0) {
-        console.log(`🔄 Main Feature changing at ${masterTimer}ms`);
         setCurrentMainFeature((prev) => (prev + 1) % cardData.mainFeature.length);
       }
       
@@ -130,13 +129,6 @@ const HeroCards = () => {
       })()
   };
   
-  // Debug logging
-  console.log('Main Feature Debug:', {
-    currentMainFeature,
-    imageTick,
-    data: cardData.mainFeature[currentMainFeature],
-    selectedImage: mainFeatureData.image
-  });
   const secondaryFeatureData = {
     ...cardData.secondaryFeature[0],
     image: cardData.secondaryFeature[0]?.images?.[0] || "/images/hero/butterfly-baby.webp"

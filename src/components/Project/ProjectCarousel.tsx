@@ -42,7 +42,6 @@ const ProjectCarousel = ({ projects = projectsData }: ProjectCarouselProps) => {
 
   const handleProjectClick = (project: Project) => {
     // You can implement navigation logic here
-    console.log("Clicked project:", project.title);
     // Example: router.push(project.link);
   };
 
