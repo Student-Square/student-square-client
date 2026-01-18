@@ -96,7 +96,7 @@ const ReviewCard = ({
         </div>
       </div>
       <blockquote className="text-sm leading-relaxed text-body-color dark:text-white/90 flex-grow">
-        "{body}"
+        &ldquo;{body}&rdquo;
       </blockquote>
     </figure>
   )

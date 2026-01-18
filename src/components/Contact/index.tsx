@@ -15,7 +15,7 @@ const Contact = () => {
                 Get in Touch with Us
               </h2>
               <p className="mb-12 text-base font-medium text-body-color">
-                Have questions about our programs, want to join as a volunteer, or need more information? We'd love to hear from you. Our team will respond as soon as possible.
+                Have questions about our programs, want to join as a volunteer, or need more information? We&apos;d love to hear from you. Our team will respond as soon as possible.
               </p>
               <form>
                 <div className="-mx-4 flex flex-wrap">

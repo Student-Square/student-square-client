@@ -1,6 +1,6 @@
 "use client";
 
-import React, { MouseEvent, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 type CardSpotlightProps = {
@@ -17,17 +17,17 @@ export default function CardSpotlight({ children, className }: CardSpotlightProp
   });
 
   React.useEffect(() => {
-    const updateMousePosition = (ev: MouseEvent | any) => {
+    const updateMousePosition = (ev: globalThis.MouseEvent) => {
       setMousePosition({ x: ev.clientX, y: ev.clientY });
     };
-    window.addEventListener("mousemove", updateMousePosition as any);
+    window.addEventListener("mousemove", updateMousePosition);
     return () => {
-      window.removeEventListener("mousemove", updateMousePosition as any);
+      window.removeEventListener("mousemove", updateMousePosition);
     };
   }, []);
 
   const [overlayColor, setOverlayColor] = useState({ x: 0, y: 0 });
-  const handleMouseMove = ({ currentTarget, clientX, clientY }: any) => {
+  const handleMouseMove = ({ currentTarget, clientX, clientY }: React.MouseEvent<HTMLDivElement>) => {
     const { left, top } = (currentTarget as HTMLDivElement).getBoundingClientRect();
     const x = clientX - left;
     const y = clientY - top;

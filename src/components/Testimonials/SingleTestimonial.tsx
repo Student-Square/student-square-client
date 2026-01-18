@@ -15,7 +15,7 @@ const SingleTestimonial = ({ testimonial }: { testimonial: Testimonial }) => {
         </div>
         
         <p className="relative text-body-color mb-8 text-base leading-relaxed dark:text-white/90 font-medium flex-grow">
-          "{content}"
+          &ldquo;{content}&rdquo;
         </p>
         
         <div className="flex items-center pt-6 border-t border-gray-100 dark:border-gray-800 mt-auto">

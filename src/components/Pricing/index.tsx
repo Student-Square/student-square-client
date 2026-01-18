@@ -87,7 +87,7 @@ const Stories = () => {
             {/* Description - Subtle & Elegant */}
             <p className="mx-auto max-w-2xl text-base leading-relaxed text-gray-600 dark:text-gray-400 sm:text-lg">
               Discover the transformative journeys of students who have grown, learned, and made a difference through
-              Student Square's programs.
+              Student Square&apos;s programs.
             </p>
           </div>
 

@@ -68,7 +68,7 @@ const StoryCard = (props: {
           {/* Quote - Modern design */}
           <div className="mb-4">
             <blockquote className="text-gray-700 dark:text-gray-300 italic text-center text-xs leading-relaxed relative pl-4 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-blue-500 before:to-purple-500 line-clamp-2">
-              "{story.quote}"
+              &ldquo;{story.quote}&rdquo;
             </blockquote>
           </div>
 

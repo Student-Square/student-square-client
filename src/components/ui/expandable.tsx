@@ -74,25 +74,24 @@ interface ExpandableProps extends ExpandablePropsBase {
   onCollapseEnd?: () => void
 }
 // ROOT Expand component
-const Expandable = React.forwardRef<HTMLDivElement, ExpandableProps>(
-  (
-    {
-      children,
-      expanded,
-      onToggle,
-      transitionDuration = 0.3,
-      easeType = "easeInOut" as const,
-      expandDirection = "vertical",
-      expandBehavior = "replace",
-      initialDelay = 0,
-      onExpandStart,
-      onExpandEnd,
-      onCollapseStart,
-      onCollapseEnd,
-      ...props
-    },
-    ref
-  ) => {
+const Expandable = React.forwardRef<HTMLDivElement, ExpandableProps>(function Expandable(
+  {
+    children,
+    expanded,
+    onToggle,
+    transitionDuration = 0.3,
+    easeType = "easeInOut" as const,
+    expandDirection = "vertical",
+    expandBehavior = "replace",
+    initialDelay = 0,
+    onExpandStart,
+    onExpandEnd,
+    onCollapseStart,
+    onCollapseEnd,
+    ...props
+  },
+  ref
+) {
     // Internal state for expansion when the component is uncontrolled
     const [isExpandedInternal, setIsExpandedInternal] = useState(false)
 
@@ -145,11 +144,13 @@ const Expandable = React.forwardRef<HTMLDivElement, ExpandableProps>(
   }
 )
 
+Expandable.displayName = "Expandable"
+
 // Simplify animation types
 type AnimationPreset = {
-  initial: { [key: string]: any }
-  animate: { [key: string]: any }
-  exit: { [key: string]: any }
+  initial: { [key: string]: number | string }
+  animate: { [key: string]: number | string }
+  exit: { [key: string]: number | string }
 }
 
 // Update ANIMATION_PRESETS type
@@ -218,7 +219,7 @@ interface AnimationProps {
   initial?: TargetAndTransition
   animate?: TargetAndTransition
   exit?: TargetAndTransition
-  transition?: any
+  transition?: TargetAndTransition["transition"]
 }
 
 // Inside ExpandableContent component
@@ -253,20 +254,19 @@ const ExpandableContent = React.forwardRef<
     staggerChildren?: number
     keepMounted?: boolean
   }
->(
-  (
-    {
-      children,
-      preset,
-      animateIn,
-      animateOut,
-      stagger = false,
-      staggerChildren = 0.1,
-      keepMounted = false,
-      ...props
-    },
-    ref
-  ) => {
+>(function ExpandableContent(
+  {
+    children,
+    preset,
+    animateIn,
+    animateOut,
+    stagger = false,
+    staggerChildren = 0.1,
+    keepMounted = false,
+    ...props
+  },
+  ref
+) {
     const { isExpanded, transitionDuration, easeType } = useExpandable()
     // useMeasure is used to measure the height of the content
     const [measureRef, { height: measuredHeight }] = useMeasure()
@@ -347,6 +347,8 @@ const ExpandableContent = React.forwardRef<
     )
   }
 )
+
+ExpandableContent.displayName = "ExpandableContent"
 
 interface ExpandableCardProps {
   children: ReactNode

@@ -51,8 +51,8 @@ export default function Spotlight({
             "conic-gradient(at 20% 20%, #f43f5e, #f59e0b, #84cc16, #22d3ee, #a78bfa, #f43f5e)",
           mask:
             "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
-          WebkitMaskComposite: "xor" as any,
-          maskComposite: "exclude" as any,
+          WebkitMaskComposite: "xor" as const,
+          maskComposite: "exclude" as const,
           padding: 1,
           opacity: isHovered ? 0.7 : 0.4,
         }}

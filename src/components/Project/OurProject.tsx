@@ -24,7 +24,7 @@ const OurProject = () => {
           {/* Call to Action */}
           <div className="mt-16 text-center">
             <p className="text-body-color mb-6 text-lg">
-              Interested in working with us? Let's discuss your next project.
+              Interested in working with us? Let&apos;s discuss your next project.
             </p>
             <a
               href="/contact"
