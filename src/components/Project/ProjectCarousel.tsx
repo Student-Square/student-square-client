@@ -67,16 +67,55 @@ const ProjectCarousel = ({ projects = projectsData }: ProjectCarouselProps) => {
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300" />
+                  
+                  {/* Dark gradient overlay with progressive backdrop blur */}
+                  <div className="absolute bottom-0 left-0 right-0 h-[25%]">
+                    {/* Dark gradient overlay */}
+                    <div 
+                      className="absolute inset-0"
+                      style={{
+                        background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.65) 20%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.2) 85%, transparent 100%)',
+                      }}
+                    />
+                    
+                    {/* Progressive backdrop blur layers - strongest at bottom, reducing upward */}
+                    <div 
+                      className="absolute inset-0"
+                      style={{
+                        backdropFilter: 'blur(8px)',
+                        WebkitBackdropFilter: 'blur(8px)',
+                        maskImage: 'linear-gradient(to top, black 0%, black 25%, transparent 100%)',
+                        WebkitMaskImage: 'linear-gradient(to top, black 0%, black 25%, transparent 100%)',
+                      }}
+                    />
+                    <div 
+                      className="absolute inset-0"
+                      style={{
+                        backdropFilter: 'blur(4px)',
+                        WebkitBackdropFilter: 'blur(4px)',
+                        maskImage: 'linear-gradient(to top, transparent 0%, black 25%, black 50%, transparent 100%)',
+                        WebkitMaskImage: 'linear-gradient(to top, transparent 0%, black 25%, black 50%, transparent 100%)',
+                      }}
+                    />
+                    <div 
+                      className="absolute inset-0"
+                      style={{
+                        backdropFilter: 'blur(2px)',
+                        WebkitBackdropFilter: 'blur(2px)',
+                        maskImage: 'linear-gradient(to top, transparent 50%, black 75%, transparent 100%)',
+                        WebkitMaskImage: 'linear-gradient(to top, transparent 50%, black 75%, transparent 100%)',
+                      }}
+                    />
+                  </div>
                   
                   {/* Project Info Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
                     <div className="mb-2">
                       <span className="inline-block px-3 py-1 text-xs font-semibold bg-primary rounded-full">
                         {project.category}
                       </span>
                     </div>
-                    <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+                    <h3 className="text-2xl font-bold mb-2 transition-colors duration-300">
                       {project.title}
                     </h3>
                     <p className="text-sm opacity-90">

@@ -6,6 +6,8 @@ import ScrollUp from "@/components/Common/ScrollUp";
 import Contact from "@/components/Contact";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
+import News from "@/components/News";
+import Partners from "@/components/Partners";
 import Stories from "@/components/Pricing";
 import OurProject from "@/components/Project/OurProject";
 import Testimonials from "@/components/Testimonials";
@@ -28,7 +30,8 @@ export default function Home() {
       <OurProject />
       <Stories />
       <Testimonials />
-      
+      <News />
+      <Partners />
       <Blog />
       <Contact />
     </>

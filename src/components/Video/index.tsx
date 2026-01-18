@@ -10,7 +10,7 @@ export default function Video() {
 
   return (
     <>
-      <section className="relative z-10 py-16 md:py-20 lg:py-28">
+      <section className="relative z-10 py-12 md:py-16 lg:py-20">
         <div className="container">
           <SectionTitle
             title="We are ready to help"

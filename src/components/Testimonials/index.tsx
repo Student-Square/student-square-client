@@ -1,51 +1,131 @@
+"use client"
+
 import { Testimonial } from "@/types/testimonial";
 import SectionTitle from "../Common/SectionTitle";
-import SingleTestimonial from "./SingleTestimonial";
+import { Marquee } from "@/components/ui/marquee";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const testimonialData: Testimonial[] = [
   {
     id: 1,
-    name: "Musharof Chy",
-    designation: "Founder @TailGrids",
+    name: "Mohammad Kamrul Hasan",
+    designation: "District Magistrate, Dhaka District",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "Student Square has been instrumental in empowering our youth and creating positive change in our communities. Their programs on emergency response training, environmental conservation, and community development have made a significant impact.",
     image: "/images/testimonials/auth-01.png",
     star: 5,
   },
   {
     id: 2,
-    name: "Devid Weilium",
-    designation: "Founder @UIdeck",
+    name: "Dr. Ayesha Khatun",
+    designation: "Additional Secretary, Ministry of Education",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "The work Student Square is doing with students across Bangladesh is truly commendable. Their focus on practical skills, leadership development, and community service aligns perfectly with our educational goals.",
     image: "/images/testimonials/auth-02.png",
     star: 5,
   },
   {
     id: 3,
-    name: "Lethium Frenci",
-    designation: "Founder @Lineicons",
+    name: "Abdul Karim",
+    designation: "Deputy Commissioner, Rajshahi Division",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "Student Square's initiatives have transformed how students engage with their communities. Their tree plantation drives, educational workshops, and emergency training programs have created lasting positive change.",
+    image: "/images/testimonials/auth-03.png",
+    star: 5,
+  },
+  {
+    id: 4,
+    name: "Fatima Begum",
+    designation: "Mayor, Chittagong City Corporation",
+    content:
+      "We have seen remarkable improvements in student engagement and community participation since Student Square began their programs in our city. Their commitment to youth development is outstanding.",
+    image: "/images/testimonials/auth-01.png",
+    star: 5,
+  },
+  {
+    id: 5,
+    name: "Dr. Rahman Ali",
+    designation: "Vice Chancellor, University of Dhaka",
+    content:
+      "Student Square bridges the gap between academic learning and practical community service. Our students have gained invaluable experience through their programs that complements their education perfectly.",
+    image: "/images/testimonials/auth-02.png",
+    star: 5,
+  },
+  {
+    id: 6,
+    name: "Nazma Akter",
+    designation: "Director, Social Welfare Department",
+    content:
+      "The impact of Student Square's work extends far beyond the students themselves. They are building stronger communities and creating a culture of service and responsibility among our youth.",
     image: "/images/testimonials/auth-03.png",
     star: 5,
   },
 ];
+
+const ReviewCard = ({
+  img,
+  name,
+  designation,
+  body,
+}: {
+  img: string
+  name: string
+  designation: string
+  body: string
+}) => {
+  return (
+    <figure
+      className={cn(
+        "relative h-full w-80 shrink-0 cursor-pointer overflow-hidden rounded-xl border p-6 flex flex-col",
+        // light styles
+        "border-gray-950/[.1] bg-white hover:bg-gray-50 shadow-lg hover:shadow-xl transition-all duration-300",
+        // dark styles
+        "dark:border-gray-50/[.1] dark:bg-dark dark:hover:bg-gray-800/50"
+      )}
+    >
+      <div className="flex flex-row items-center gap-3 mb-4">
+        <div className="relative h-12 w-12 overflow-hidden rounded-full ring-2 ring-primary/20">
+          <Image src={img} alt={name} fill className="object-cover" />
+        </div>
+        <div className="flex flex-col">
+          <figcaption className="text-sm font-bold dark:text-white">
+            {name}
+          </figcaption>
+          <p className="text-xs font-medium dark:text-white/60">{designation}</p>
+        </div>
+      </div>
+      <blockquote className="text-sm leading-relaxed text-body-color dark:text-white/90 flex-grow">
+        "{body}"
+      </blockquote>
+    </figure>
+  )
+}
 
 const Testimonials = () => {
   return (
     <section className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
-          title="What Our Users Says"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title="What People say to us"
+          paragraph="Hear from distinguished government officials, educators, and community leaders about the impact of Student Square's programs and initiatives across Bangladesh."
           center
         />
 
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-          {testimonialData.map((testimonial) => (
-            <SingleTestimonial key={testimonial.id} testimonial={testimonial} />
-          ))}
+        <div className="relative flex w-full flex-col overflow-hidden mt-12">
+          <Marquee pauseOnHover className="[--duration:30s] [--gap:1.5rem] w-full">
+            {testimonialData.map((testimonial) => (
+              <ReviewCard 
+                key={testimonial.id} 
+                img={testimonial.image}
+                name={testimonial.name}
+                designation={testimonial.designation}
+                body={testimonial.content}
+              />
+            ))}
+          </Marquee>
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-gray-light dark:from-bg-color-dark z-10"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-gray-light dark:from-bg-color-dark z-10"></div>
         </div>
       </div>
       <div className="absolute right-0 top-5 z-[-1]">

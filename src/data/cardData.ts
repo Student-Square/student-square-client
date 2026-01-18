@@ -50,8 +50,8 @@ export const cardData = {
     {
       id: "blog1_1",
       image: "/images/hero/student-square-school-session.jpg",
-      title: "How to Build a Positive and Sustainable Future for Your Kids",
-      category: "Education"
+      title: "Empowering Youth: Building a Brighter Future Through Community Service",
+      category: "Impact"
     }
    
   ],
@@ -59,8 +59,8 @@ export const cardData = {
     {
       id: "blog2_1",
       image: "/images/hero/cyclone-featured.webp",
-      title: "Cyclone Remal downgraded, moves inland",
-      category: "Reportage"
+      title: "Climate Action: Students Leading the Way in Disaster Response",
+      category: "Action"
     }
   ]
 };

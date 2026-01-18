@@ -6,17 +6,17 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
   const { title, image, paragraph, author, tags, publishDate } = blog;
   return (
     <>
-      <div className="group shadow-one hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark relative overflow-hidden rounded-xs bg-white duration-300">
+      <div className="group shadow-one hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark relative flex h-full w-full flex-col overflow-hidden rounded-xl bg-white duration-300 hover:-translate-y-1 cursor-pointer">
         <Link
           href="/blog-details"
-          className="relative block aspect-37/22 w-full"
+          className="relative block aspect-[37/22] w-full"
         >
           <span className="bg-primary absolute top-6 right-6 z-20 inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-white capitalize">
             {tags[0]}
           </span>
-          <Image src={image} alt="image" fill />
+          <Image src={image} alt="image" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
         </Link>
-        <div className="p-6 sm:p-8 md:px-6 md:py-8 lg:p-8 xl:px-5 xl:py-8 2xl:p-8">
+        <div className="flex flex-grow flex-col p-6 sm:p-8 md:px-6 md:py-8 lg:p-8 xl:px-5 xl:py-8 2xl:p-8">
           <h3>
             <Link
               href="/blog-details"
@@ -25,10 +25,10 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
               {title}
             </Link>
           </h3>
-          <p className="border-body-color/10 text-body-color mb-6 border-b pb-6 text-base font-medium dark:border-white/10">
+          <p className="border-body-color/10 text-body-color mb-6 border-b pb-6 text-base font-medium dark:border-white/10 flex-grow">
             {paragraph}
           </p>
-          <div className="flex items-center">
+          <div className="flex items-center mt-auto">
             <div className="border-body-color/10 mr-5 flex items-center border-r pr-5 xl:mr-3 xl:pr-3 2xl:mr-5 2xl:pr-5 dark:border-white/10">
               <div className="mr-4">
                 <div className="relative h-10 w-10 overflow-hidden rounded-full">

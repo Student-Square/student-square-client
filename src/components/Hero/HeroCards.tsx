@@ -171,7 +171,7 @@ const HeroCards = () => {
         <div className="md:col-span-2 xl:col-span-2 flex flex-col gap-4 sm:gap-6">
           {/* First Row - Full width card taking 2/3 height */}
           <motion.div
-            className="h-[250px] sm:h-[300px] md:min-h-[360px] md:flex-[2] rounded-3xl sm:rounded-[2rem] overflow-hidden relative group"
+            className="h-[250px] sm:h-[300px] md:min-h-[360px] md:flex-[2] rounded-3xl sm:rounded-[2rem] overflow-hidden relative group z-10"
             variants={itemVariants}
             whileHover={{ scale: 1.02, y: -5 }}
             transition={{ type: 'spring', stiffness: 400, damping: 10 }}
@@ -182,13 +182,13 @@ const HeroCards = () => {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
-              className="absolute inset-0"
+              className="absolute inset-0 z-10"
             >
               <Image
                 src={mainFeatureData.image}
                 alt={mainFeatureData.title || "Main feature image"}
                 fill
-                className="object-cover transition-transform duration-700 
+                className="object-cover transition-transform duration-700 relative z-10
                           [mask-image:linear-gradient(to_bottom,transparent_0%,black_70%,black_100%)]
                           [mask-repeat:no-repeat] [mask-size:100%_100%]"
                 priority
@@ -336,11 +336,22 @@ const HeroCards = () => {
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </motion.div>
-              <ProgressiveBlur
-                className="pointer-events-none absolute bottom-0 left-0 h-[40%] w-full"
-                blurIntensity={2}
+              {/* Dark gradient overlay for text readability */}
+              <div 
+                className="absolute bottom-0 left-0 right-0 h-[50%] md:h-[45%]"
+                style={{
+                  background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.65) 20%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.2) 85%, transparent 100%)',
+                }}
               />
-              <div className="absolute bottom-0 p-3 sm:p-4 md:p-6 flex flex-col justify-end z-10">
+              
+              {/* Progressive Blur */}
+              <ProgressiveBlur
+                className="pointer-events-none absolute bottom-0 left-0 h-[50%] md:h-[45%] w-full"
+                blurIntensity={3}
+                blurLayers={10}
+              />
+              
+              <div className="absolute bottom-0 p-3 sm:p-4 md:p-6 flex flex-col justify-end z-20">
                 <motion.div
                   key={`${blogCard1Data.id}-content`}
                   initial={{ opacity: 0, y: 25 }}

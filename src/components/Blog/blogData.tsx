@@ -3,44 +3,44 @@ import { Blog } from "@/types/blog";
 const blogData: Blog[] = [
   {
     id: 1,
-    title: "Best UI components for modern websites",
+    title: "The Power of Youth: Transformative Journeys in Bangladesh",
     paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.",
+      "Explore how students are leading community development projects and creating lasting impact through Student Square's initiatives.",
     image: "/images/blog/blog-01.jpg",
     author: {
       name: "Samuyl Joshi",
       image: "/images/blog/author-03.png",
-      designation: "Graphic Designer",
+      designation: "Program Coordinator",
     },
-    tags: ["creative"],
+    tags: ["Leadership"],
     publishDate: "2025",
   },
   {
     id: 2,
-    title: "9 simple ways to improve your design skills",
+    title: "Green Innovation: Students Planting 1 Lakh Palm Trees",
     paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.",
+      "Learn about our ambitious environmental mission and the dedicated students making our green initiatives a reality.",
     image: "/images/blog/blog-02.jpg",
     author: {
       name: "Musharof Chy",
       image: "/images/blog/author-02.png",
-      designation: "Content Writer",
+      designation: "Environmentalist",
     },
-    tags: ["computer"],
+    tags: ["Sustainability"],
     publishDate: "2025",
   },
   {
     id: 3,
-    title: "Tips to quickly improve your coding speed.",
+    title: "Emergency Response: Training the Next Generation",
     paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.",
+      "Discover the critical skills our volunteers are learning to serve their communities during natural disasters and emergencies.",
     image: "/images/blog/blog-03.jpg",
     author: {
       name: "Lethium Deo",
       image: "/images/blog/author-03.png",
-      designation: "Graphic Designer",
+      designation: "Safety Trainer",
     },
-    tags: ["design"],
+    tags: ["Service"],
     publishDate: "2025",
   },
 ];

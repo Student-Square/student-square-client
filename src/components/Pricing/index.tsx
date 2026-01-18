@@ -1,52 +1,95 @@
+"use client"
+
+import { useRef, useEffect } from "react"
 import SectionTitle from "../Common/SectionTitle";
 import StoryCard from "../Stories/StoryCard";
 import { storiesData } from "../Stories/storiesData";
+import { Confetti, type ConfettiRef } from "@/registry/magicui/confetti";
 
 const Stories = () => {
+  const confettiRef = useRef<ConfettiRef>(null)
+  const badgeRef = useRef<HTMLDivElement>(null)
+  const fireCountRef = useRef(0)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && confettiRef.current && fireCountRef.current < 2) {
+            // Fire confetti when "Student Success Stories" badge comes into view
+            confettiRef.current.fire({
+              particleCount: 150,
+              spread: 70,
+              origin: { y: 0.6 },
+              colors: ['#3b82f6', '#8b5cf6', '#ec4899', '#10b981', '#f59e0b'],
+            })
+            
+            fireCountRef.current += 1
+            
+            // Fire second time after a short delay
+            if (fireCountRef.current === 1) {
+              setTimeout(() => {
+                if (confettiRef.current) {
+                  confettiRef.current.fire({
+                    particleCount: 150,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#3b82f6', '#8b5cf6', '#ec4899', '#10b981', '#f59e0b'],
+                  })
+                  fireCountRef.current += 1
+                }
+              }, 500)
+            }
+            
+            // Disconnect after second fire
+            if (fireCountRef.current >= 2) {
+              observer.disconnect()
+            }
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    if (badgeRef.current) {
+      observer.observe(badgeRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section id="stories" className="relative z-10 py-10 md:py-14 lg:py-22">
-      <div className="container px-8 md:px-12 lg:px-16">
-          {/* Custom Modern Title Section */}
-          <div className="relative mb-16 text-center overflow-hidden px-8 md:px-12 lg:px-16 py-8 md:py-12 lg:py-16 rounded-3xl border-l border-r border-border/50 bg-background/50 dark:border-gray-600/50 backdrop-blur-sm">
-          {/* Background blending sides */}
-          <div className="absolute inset-y-0 -left-8 w-16 bg-gradient-to-r from-background to-transparent z-20"></div>
-          <div className="absolute inset-y-0 -right-8 w-16 bg-gradient-to-l from-background to-transparent z-20"></div>
-          
-          {/* Subtle Blended Mesh Background */}
-          <div className="absolute inset-0 -z-10">
-            {/* Soft top gradient */}
-            <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-primary/8 via-blue-500/5 to-transparent"></div>
-            
-            {/* Soft bottom gradient */}
-            <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-purple-500/8 via-pink-500/5 to-transparent"></div>
-            
-            {/* Center subtle glow */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gradient-radial from-primary/6 via-blue-500/3 to-transparent rounded-full blur-3xl animate-pulse"></div>
-            
-            {/* Side soft accents */}
-            <div className="absolute top-1/4 left-0 w-1/4 h-1/2 bg-gradient-to-r from-green-500/4 to-transparent blur-2xl animate-pulse delay-500"></div>
-            <div className="absolute bottom-1/4 right-0 w-1/4 h-1/2 bg-gradient-to-l from-orange-500/4 to-transparent blur-2xl animate-pulse delay-1000"></div>
-                </div>
-          
-          {/* Main Title */}
-          <div className="relative z-10">
-            {/* Badge */}
-            <div className="mb-6 inline-flex items-center rounded-full border border-border bg-secondary px-4 py-1.5 dark:border-border dark:bg-secondary">
-              <span className="text-sm font-medium text-muted-foreground dark:text-muted-foreground">Student Success Stories</span>
+    <section id="stories" className="relative z-20 py-10 md:py-14 lg:py-22 overflow-hidden">
+      <Confetti
+        ref={confettiRef}
+        className="absolute top-0 left-0 w-full h-[400px] !z-[100]"
+        style={{ width: '100vw', left: '50%', transform: 'translateX(-50%)' }}
+      />
+      <div className="container relative z-10 px-8 md:px-12 lg:px-16">
+          {/* Modern Clean Title Section */}
+          <div className="relative mb-16 text-center">
+            {/* Badge - Modern Style */}
+            <div ref={badgeRef} className="mb-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 px-5 py-2 border border-blue-200/50 dark:border-blue-800/50">
+              <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+              </svg>
+              <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">Student Success Stories</span>
             </div>
 
-            {/* Main Heading */}
-            <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-foreground dark:text-foreground sm:text-5xl lg:text-6xl">
-              Hundreds of Inspiring <span className="text-primary dark:text-primary">Student Success</span>
+            {/* Main Heading - Clean & Bold */}
+            <h1 className="mb-5 text-balance text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+              Hundreds of Inspiring{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400">
+                Student Success
+              </span>
             </h1>
 
-            {/* Description */}
-            <p className="mx-auto max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground dark:text-muted-foreground sm:text-xl">
+            {/* Description - Subtle & Elegant */}
+            <p className="mx-auto max-w-2xl text-base leading-relaxed text-gray-600 dark:text-gray-400 sm:text-lg">
               Discover the transformative journeys of students who have grown, learned, and made a difference through
               Student Square's programs.
             </p>
           </div>
-        </div>
 
         <div className="relative">
           {/* Background blending for stories grid */}

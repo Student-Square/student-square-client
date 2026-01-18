@@ -13,104 +13,85 @@ const StoryCard = (props: {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full max-w-[420px] mx-auto group">
       <div 
-        className="shadow-three hover:shadow-one dark:bg-gray-dark dark:shadow-two dark:hover:shadow-gray-dark relative z-10 rounded-lg bg-white overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer"
+        className="relative z-10 rounded-2xl bg-white dark:bg-gray-900 overflow-hidden transition-all duration-500 cursor-pointer border border-gray-200/50 dark:border-gray-800/50 shadow-md shadow-gray-200/50 dark:shadow-none hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-xl hover:shadow-gray-300/50 dark:hover:shadow-gray-900/50 hover:-translate-y-1"
         onClick={handleCardClick}
       >
-        {/* Rectangular Image Header */}
-        <div className="relative h-48 w-full overflow-hidden">
+        {/* Portrait Image Header - Main Focus */}
+        <div className="relative h-64 md:h-72 lg:h-80 w-full overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900">
           <Image
             src={story.image}
             alt={story.name}
             fill
-            className="object-cover transition-transform duration-300 hover:scale-110"
+            className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
+            priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           
-          {/* Student Name Overlay */}
-          <div className="absolute bottom-4 left-4 right-4">
-            <h3 className="text-white text-xl font-bold mb-1">
+          {/* Gradient overlay with modern blur */}
+          <div 
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 33%, rgba(0,0,0,0.3) 66%, transparent 100%)'
+            }}
+          />
+          
+          {/* Progressive blur layer */}
+          <div 
+            className="absolute bottom-0 left-0 right-0 h-16 md:h-20 lg:h-24"
+            style={{
+              background: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 33%, rgba(0,0,0,0.3) 66%, transparent 100%)',
+              backdropFilter: 'blur(4px)',
+              WebkitBackdropFilter: 'blur(4px)',
+            }}
+          />
+          
+          {/* Student Name Overlay - Modern styling */}
+          <div className="absolute bottom-4 left-4 right-4 z-10">
+            <h3 className="text-white text-xl md:text-2xl font-bold mb-1.5 drop-shadow-2xl tracking-tight">
               {story.name}
             </h3>
-            <p className="text-white/90 text-sm font-medium">
+            <p className="text-white/95 text-sm md:text-base font-semibold mb-1 drop-shadow-lg">
               {story.role}
             </p>
-            <p className="text-white/80 text-xs">
+            <p className="text-white/85 text-xs md:text-sm drop-shadow-md flex items-center gap-1.5">
+              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+              </svg>
               {story.university}
             </p>
           </div>
         </div>
 
-        {/* Card Content */}
-        <div className="p-6">
-          {/* Quote */}
+        {/* Card Content - Modern glassmorphism style */}
+        <div className="p-5 bg-gradient-to-b from-white to-gray-50/50 dark:from-gray-900 dark:to-gray-800/50 backdrop-blur-sm">
+          {/* Quote - Modern design */}
           <div className="mb-4">
-            <blockquote className="text-body-color italic text-center text-sm leading-relaxed border-l-4 border-primary pl-4 line-clamp-2">
+            <blockquote className="text-gray-700 dark:text-gray-300 italic text-center text-xs leading-relaxed relative pl-4 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-blue-500 before:to-purple-500 line-clamp-2">
               "{story.quote}"
             </blockquote>
           </div>
 
           {/* Story */}
           <div className="mb-4">
-            <p className="text-body-color text-sm leading-relaxed line-clamp-2">
+            <p className="text-gray-600 dark:text-gray-400 text-xs leading-relaxed line-clamp-2">
               {story.story}
             </p>
           </div>
 
-          {/* Achievement */}
+          {/* Achievement - Modern badge */}
           <div className="text-center">
-            <div className="bg-primary/10 text-primary inline-block rounded-full px-4 py-2 text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 text-blue-700 dark:text-blue-300 rounded-full px-4 py-2 text-[10px] font-semibold border border-blue-200/50 dark:border-blue-800/50 shadow-sm">
+              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
               {story.achievement}
             </div>
           </div>
         </div>
 
-        {/* Bottom SVG Decoration */}
-        <div className="absolute right-0 bottom-0 z-[-1]">
-          <svg
-            width="179"
-            height="158"
-            viewBox="0 0 179 158"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              opacity="0.5"
-              d="M75.0002 63.256C115.229 82.3657 136.011 137.496 141.374 162.673C150.063 203.47 207.217 197.755 202.419 167.738C195.393 123.781 137.273 90.3579 75.0002 63.256Z"
-              fill="url(#paint0_linear_70:153)"
-            />
-            <path
-              opacity="0.3"
-              d="M178.255 0.150879C129.388 56.5969 134.648 155.224 143.387 197.482C157.547 265.958 65.9705 295.709 53.1024 246.401C34.2588 174.197 100.939 83.7223 178.255 0.150879Z"
-              fill="url(#paint1_linear_70:153)"
-            />
-            <defs>
-              <linearGradient
-                id="paint0_linear_70:153"
-                x1="69.6694"
-                y1="29.9033"
-                x2="196.108"
-                y2="83.2919"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stopColor="#4A6CF7" stopOpacity="0.62" />
-                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
-              </linearGradient>
-              <linearGradient
-                id="paint1_linear_70:153"
-                x1="165.348"
-                y1="-75.4466"
-                x2="-3.75136"
-                y2="103.645"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stopColor="#4A6CF7" stopOpacity="0.62" />
-                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
+        {/* Modern hover glow effect */}
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-blue-500/10 group-hover:via-purple-500/10 group-hover:to-pink-500/10 transition-all duration-500 pointer-events-none" />
       </div>
     </div>
   );
