@@ -162,10 +162,12 @@ export function TopNav() {
 
 						{/* Right Side Actions */}
 						<div className="flex items-center justify-end pr-16 xl:pr-0 xl:pl-12 2xl:pl-20">
-							{/* Search Button */}
+							{/* Search Button (disabled per request) */}
+							{/*
 							<button className="mr-4 hidden h-[38px] w-[38px] items-center justify-center rounded-full bg-white text-black sm:flex dark:bg-black dark:text-white">
 								<Search className="h-5 w-5" />
 							</button>
+							*/}
 
 							{/* Dark Mode Toggle */}
 							<div className="mr-4">

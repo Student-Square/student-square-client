@@ -9,8 +9,9 @@ const Hero = () => {
         id="home"
         className="relative z-10 overflow-hidden bg-white pt-20 dark:bg-[#080321] md:pt-20 xl:pt-20 2xl:pt-24 3xl:pt-28"
       >
-        {/* Aurora Animation Background - Behind everything */}
-        <div className="absolute inset-0 z-0">
+        {/* Aurora Animation Background - disabled per request */}
+        {/*
+        <div className="absolute inset-0 z-0 hidden lg:block">
           <Aurora 
             colorStops={["#475569", "#64748b", "#475569"]} 
             amplitude={1.2}
@@ -18,6 +19,7 @@ const Hero = () => {
             speed={0.8}
           />
         </div>
+        */}
         
         {/* Gradient Background */}
         <div className="absolute left-0 top-0 z-[1] h-full w-full opacity-20 hero-gradient "></div>

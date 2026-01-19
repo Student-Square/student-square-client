@@ -75,22 +75,22 @@ interface ExpandableProps extends ExpandablePropsBase {
 }
 // ROOT Expand component
 const Expandable = React.forwardRef<HTMLDivElement, ExpandableProps>(function Expandable(
-  {
-    children,
-    expanded,
-    onToggle,
-    transitionDuration = 0.3,
-    easeType = "easeInOut" as const,
-    expandDirection = "vertical",
-    expandBehavior = "replace",
-    initialDelay = 0,
-    onExpandStart,
-    onExpandEnd,
-    onCollapseStart,
-    onCollapseEnd,
-    ...props
-  },
-  ref
+    {
+      children,
+      expanded,
+      onToggle,
+      transitionDuration = 0.3,
+      easeType = "easeInOut" as const,
+      expandDirection = "vertical",
+      expandBehavior = "replace",
+      initialDelay = 0,
+      onExpandStart,
+      onExpandEnd,
+      onCollapseStart,
+      onCollapseEnd,
+      ...props
+    },
+    ref
 ) {
     // Internal state for expansion when the component is uncontrolled
     const [isExpandedInternal, setIsExpandedInternal] = useState(false)
@@ -255,17 +255,17 @@ const ExpandableContent = React.forwardRef<
     keepMounted?: boolean
   }
 >(function ExpandableContent(
-  {
-    children,
-    preset,
-    animateIn,
-    animateOut,
-    stagger = false,
-    staggerChildren = 0.1,
-    keepMounted = false,
-    ...props
-  },
-  ref
+    {
+      children,
+      preset,
+      animateIn,
+      animateOut,
+      stagger = false,
+      staggerChildren = 0.1,
+      keepMounted = false,
+      ...props
+    },
+    ref
 ) {
     const { isExpanded, transitionDuration, easeType } = useExpandable()
     // useMeasure is used to measure the height of the content

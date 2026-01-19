@@ -250,8 +250,8 @@ const Header = () => {
 
               {/* Right Side Actions */}
             <div className="flex items-center justify-center flex-1 pr-16 lg:pr-20 xl:pr-0 xl:pl-4 2xl:pl-6">
-                {/* Search Button */}
-              <button className="mr-1 xl:mr-2 2xl:mr-3 flex h-8 w-8 sm:h-9 sm:w-9 xl:h-[38px] xl:w-[38px] items-center justify-center rounded-full bg-white text-body-color-2 border border-gray-200 dark:border-none dark:bg-black dark:text-gray-200">
+                {/* Search Button - hidden on small screens */}
+              <button className="mr-1 xl:mr-2 2xl:mr-3 hidden md:flex h-8 w-8 sm:h-9 sm:w-9 xl:h-[38px] xl:w-[38px] items-center justify-center rounded-full bg-white text-body-color-2 border border-gray-200 dark:border-none dark:bg-black dark:text-gray-200">
                   <Search className="h-4 w-4 sm:h-4 sm:w-4 xl:h-5 xl:w-5" />
                 </button>
 
