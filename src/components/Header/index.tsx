@@ -86,7 +86,7 @@ const Header = () => {
                   width={520}
                   height={70}
                   className="block w-full logo-float min-h-[clamp(34px,6vw,54px)] sm:min-h-[clamp(35px,6vw,55px)] lg:min-h-[clamp(40px,7vw,60px)] xl:min-h-[clamp(38px,6.5vw,58px)] 2xl:min-h-[clamp(36px,6vw,56px)] object-contain"
-                  src="/images/logo/ss_logo.png"
+                  src="/images/logo/SS_LOGO.png"
                   style={{ color: 'transparent' }}
                 />
               </Link>
